@@ -31,17 +31,17 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     });
 
-    builder.addCase(refreshUser.pending, state => {
-      state.isRefreshing = true;
-    });
-    builder.addCase(refreshUser.fulfilled, (state, action) => {
-      state.user = action.payload;
-      state.isLoggedIn = true;
-      state.isRefreshing = false;
-    });
-    builder.addCase(refreshUser.rejected, state => {
-      state.isRefreshing = false;
-    });
+    // builder.addCase(refreshUser.pending, state => {
+    //   state.isRefreshing = true;
+    // });
+    // builder.addCase(refreshUser.fulfilled, (state, action) => {
+    //   state.user = action.payload;
+    //   state.isLoggedIn = true;
+    //   state.isRefreshing = false;
+    // });
+    // builder.addCase(refreshUser.rejected, state => {
+    //   state.isRefreshing = false;
+    // });
   },
 });
 
