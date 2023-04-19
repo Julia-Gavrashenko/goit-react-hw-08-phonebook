@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContactsLayout = styled.div`   
-  width: 600px;
+  width: 900px;
   padding: 20px;
   margin-left: auto;
   margin-right: auto;

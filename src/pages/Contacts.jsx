@@ -2,6 +2,7 @@ import { ContactsPage } from "components/ContactsPage/ContactsPage";
 
 
 
+
 // const styles = {
 //   container: {
 //     minHeight: 'calc(100vh - 50px)',
@@ -20,7 +21,8 @@ import { ContactsPage } from "components/ContactsPage/ContactsPage";
 export default function Contacts() {
   return (
     <div >
-      <ContactsPage/>
+      <ContactsPage />
+    
     </div>
   );
 }

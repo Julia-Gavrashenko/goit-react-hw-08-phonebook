@@ -5,21 +5,42 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import { ListItem, Item, ItemButton, ItemSpan } from './ContactItem.styled';
 
+import UpdateModal from 'components/UpdateModal/UpdateModal';
+import { useState } from 'react';
 
-export const ContactItem = ({ info: { name, phone, id } }) => {
+
+
+export const ContactItem = ({ info: { name, number, id } }) => {
+  const [open, setOpen] = useState(false)
+  
   const dispatch = useDispatch();
 
   const handleDelete = () => dispatch(deleteContact(id));
+  const openModal = () => {
+    setOpen(true)
+    console.log('click', name, number, id)
+  }
 
   return (
-    <Item>
+    <>
+       <Item>
       <ListItem>
-        <ItemSpan>{name} :</ItemSpan> {phone}
+        <ItemSpan>{name} :</ItemSpan> {number}
       </ListItem>
+
+      {/* <Link to={`update/${id}`}> */}
+       <ItemButton type="button" onClick={openModal} >
+        Update contact
+      </ItemButton>
+      {/* </Link> */}
+
       <ItemButton type="button" onClick={handleDelete}>
         Delete contact
       </ItemButton>
-    </Item>
+      </Item>
+      <UpdateModal open={open} onClose={() =>  setOpen(false)} />
+    </>
+   
   );
 };
 
