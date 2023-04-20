@@ -1,8 +1,8 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectContacts } from 'redux/contacts/contactsSelectors';
-// import { updateContact } from 'redux/contacts/contactsOperations';
+import { useDispatch } from 'react-redux';
+import { updateContact } from 'redux/contacts/contactsOperations';
+
 import {
   Form,
   FormField,
@@ -10,7 +10,8 @@ import {
   ErrorMessage,
   UpdateContactBtn,
 } from './UpdateForm.styled';
-// import { useEffect } from 'react';
+
+
 
 const UpdateContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -27,39 +28,33 @@ const UpdateContactSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const UpdateForm = () => {
-  // const contacts = useSelector(selectContacts);
-  // const dispatch = useDispatch();
-  // const form = e.currentTarget;
+export const UpdateForm = ({
+  contactId,
+  contactName,
+  contactNumber,
+  onClose,
+}) => {
+  console.log(contactId, contactName, contactNumber);
 
-
-
-  // dispatch(
-  //   updateContact({
-  //     name: form.elements.name.value,
-  //     number: form.elements.number.value,
-  //   })
-  // );
-
-  // const handleSubmit = newContact => {
-  //   const normalizedContactName = newContact.name.toLowerCase();
-  //   const existedContact = contacts.find(
-  //     contact =>
-  //       contact.name && contact.name.toLowerCase() === normalizedContactName
-  //   );
-
-  //   existedContact
-  //     ? alert('This contact is already in contacts.')
-  //     : dispatch(addContact(newContact));
-  // };
+  const dispatch = useDispatch();
 
   return (
     <Formik
-      initialValues={{ name: '', number: '' }}
+      initialValues={{
+        name: contactName,
+        number: contactNumber,
+        id: contactId,
+      }}
       validationSchema={UpdateContactSchema}
-      onSubmit={(values, actions) => {
-        // handleSubmit(values);
-        actions.resetForm();
+      onSubmit={(values, id) => {
+        dispatch(
+          updateContact({
+            id: contactId,
+            name: values.name,
+            number: values.number,
+          })
+        );
+        onClose();
       }}
     >
       <Form>

@@ -12,7 +12,7 @@ export const Form = styled(FormikForm)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  padding-left: 30px;
+  /* padding-left: 30px; */
 `;
 
 export const FormField = styled.label`
@@ -45,11 +45,12 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const UpdateContactBtn = styled.button`
-  margin: 0;
+margin: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 150px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background: white;
   border-radius: 0.5rem;
   outline: none;

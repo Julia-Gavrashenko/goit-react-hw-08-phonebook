@@ -1,20 +1,20 @@
-// import { ContactFilter } from 'components/ContactFilter/ContactFilter';
-// import { ContactForm } from '../ContactForm/ContactForm';
-// import { ContactList } from '../ContactList/ContactList';
-// import { GlobalStyle } from '../GlobalStyle';
-// import { ContactListTitle, FormTitle, ContactsLayout } from './App.styled';
-
-import { ContactFilter } from "components/ContactFilter/ContactFilter";
-import { ContactListTitle, ContactsLayout, FormTitle } from "./ContactsPage.styled";
-import { ContactForm } from "components/ContactForm/ContactForm";
-import { ContactList } from "components/ContactList/ContactList";
-import { GlobalStyle } from "components/GlobalStyle";
+import { ContactFilter } from 'components/ContactFilter/ContactFilter';
+import {
+  ContactListTitle,
+  ContactsLayout,
+  FormTitle,
+} from './ContactsPage.styled';
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { ContactList } from 'components/ContactList/ContactList';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoading, selectError, selectContacts } from "redux/contacts/contactsSelectors";
-import { fetchContacts } from "redux/contacts/contactsOperations";
-
+import {
+  selectIsLoading,
+  selectError,
+  selectContacts,
+} from 'redux/contacts/contactsSelectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -29,14 +29,12 @@ export const ContactsPage = () => {
   return (
     <ContactsLayout>
       <FormTitle>Phonebook</FormTitle>
-      <ContactForm/>
+      <ContactForm />
       <ContactListTitle>Contacts</ContactListTitle>
-      <ContactFilter/>
+      <ContactFilter />
 
       {isLoading && !error && <b>Loading...</b>}
       {contacts.length > 0 && <ContactList />}
-
-      <GlobalStyle /> 
     </ContactsLayout>
   );
 };

@@ -45,3 +45,9 @@ export const ItemButton = styled.button`
       2px 2px 2px rgba(188, 186, 186, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
 `;
+
+export const BtnDiv = styled.div`
+display: flex;
+gap: 15px;
+   margin-left: auto;
+`

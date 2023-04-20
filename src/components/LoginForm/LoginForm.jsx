@@ -1,33 +1,53 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from "redux/auth/authOperarions";
-import { Form, FormLabel } from "./LoginForm.styled";
+import { logIn } from 'redux/auth/authOperarions';
+import { Formik } from 'formik';
+// import * as Yup from 'yup';
+
+import {
+  Form,
+  FormField,
+  Field,
+  ErrorMessage,
+  LoginBtn,
+  LoginField,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
-  };
-
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <FormLabel>
-        Email
-        <input type="email" name="email" />
-      </FormLabel>
-      <FormLabel >
-        Password
-        <input type="password" name="password" />
-      </FormLabel>
-      <button type="submit">Log In</button>
-    </Form>
+    <LoginField>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        // validationSchema={UpdateContactSchema}
+        onSubmit={values => {
+          dispatch(
+            logIn({
+              email: values.email,
+              password: values.password,
+            })
+          );
+        }}
+      >
+        <Form>
+          <FormField>
+            Email
+            <Field type="email" name="email" />
+            <ErrorMessage name="email" component="p" />
+          </FormField>
+
+          <FormField>
+            Password
+            <Field type="password" name="password" />
+            <ErrorMessage name="password" component="p" />
+          </FormField>
+
+          <LoginBtn type="submit">Log In</LoginBtn>
+        </Form>
+      </Formik>
+    </LoginField>
   );
 };
