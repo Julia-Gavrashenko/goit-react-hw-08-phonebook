@@ -60,13 +60,13 @@ export const UpdateForm = ({
       <Form>
         <FormField>
           Name
-          <Field type="text" name="name" />
+          <Field type="text" name="name" autoComplete="off"/>
           <ErrorMessage name="name" component="p" />
         </FormField>
 
         <FormField>
           Number
-          <Field type="tel" name="number" />
+          <Field type="tel" name="number" autoComplete="off"/>
           <ErrorMessage name="number" component="p" />
         </FormField>
 

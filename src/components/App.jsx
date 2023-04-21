@@ -7,6 +7,8 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/authOperarions';
 import { useAuth } from 'hooks/useAuth';
 import { GlobalStyle } from 'components/GlobalStyle';
+import { Toaster } from 'react-hot-toast';
+import { ThreeDots } from 'react-loader-spinner';
 
 
 const HomePage = lazy(() => import('../pages/Home'));
@@ -23,7 +25,17 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <ThreeDots
+          height="70"
+          width="70"
+          radius="8"
+          color="#ffc400"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{marginLeft: 500, marginTop: 150,}}
+          wrapperClassName=""
+          visible={true}
+    />
+    
   ) : (
     <>
       <GlobalStyle />
@@ -57,6 +69,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
+      <Toaster />
     </>
   );
 };

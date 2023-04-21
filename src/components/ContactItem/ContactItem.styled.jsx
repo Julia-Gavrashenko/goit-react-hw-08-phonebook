@@ -5,7 +5,7 @@ export const ListItem = styled.li`
   color: #242323;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   text-shadow: 8px 8px 12px rgba(96, 95, 95, 0.3),
     -8px -8px 12px rgba(12, 11, 11, 0.04);
 `;
@@ -40,6 +40,7 @@ export const ItemButton = styled.button`
     -6px -6px 10px rgba(14, 13, 13, 0.2), 6px 6px 8px rgba(69, 68, 68, 0.075),
     6px 6px 10px rgba(5, 5, 5, 0.15);
   :hover {
+      background-color: #f8d256;
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.7),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(188, 186, 186, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);

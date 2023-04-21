@@ -10,9 +10,7 @@ export const Navigation = () => {
       <NavigationLink  to="/">
         Home
       </NavigationLink >
-        {/* <NavigationLink  to="/contacts">
-        Contacts
-      </NavigationLink > */}
+    
       {isLoggedIn && (
         <NavigationLink  to="/contacts">
           Contacts

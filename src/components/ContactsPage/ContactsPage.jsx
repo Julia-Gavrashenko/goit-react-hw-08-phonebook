@@ -1,12 +1,6 @@
 import { ContactFilter } from 'components/ContactFilter/ContactFilter';
-import {
-  ContactListTitle,
-  ContactsLayout,
-  FormTitle,
-} from './ContactsPage.styled';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -15,6 +9,12 @@ import {
   selectContacts,
 } from 'redux/contacts/contactsSelectors';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { ThreeDots } from 'react-loader-spinner';
+import {
+  ContactListTitle,
+  ContactsLayout,
+  FormTitle,
+} from './ContactsPage.styled';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,18 @@ export const ContactsPage = () => {
       <ContactListTitle>Contacts</ContactListTitle>
       <ContactFilter />
 
-      {isLoading && !error && <b>Loading...</b>}
+      {isLoading && !error && (
+        <ThreeDots
+          height="70"
+          width="70"
+          radius="8"
+          color="#ffc400"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{marginLeft: 40,}}
+          wrapperClassName=""
+          visible={true}
+        />
+      )}
       {contacts.length > 0 && <ContactList />}
     </ContactsLayout>
   );

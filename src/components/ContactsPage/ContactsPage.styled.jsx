@@ -20,7 +20,7 @@ export const FormTitle = styled.h1`
   font-size: 40px;
   color: #fdfdfd;
   text-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5),
-    -8px -8px 12px rgba(0, 0, 0, 0.05);
+    -8px -8px 12px rgba(119, 91, 39, 0.05);
   outline: none;
 `;
 

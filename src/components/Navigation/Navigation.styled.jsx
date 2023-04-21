@@ -3,15 +3,21 @@ import { NavLink } from 'react-router-dom';
 
 
 
-// .link.active {
-//   color: #e84a5f;
-// }
 
 export const NavigationLink = styled(NavLink)`
     display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
+    font-size: 18px;
   color: #2a363b;  
+
+   &:hover,
+  &:focus {
+   color: #ffc400;
+  }
+  &.active {
+   color: #ffc400;
+  }
 `
 

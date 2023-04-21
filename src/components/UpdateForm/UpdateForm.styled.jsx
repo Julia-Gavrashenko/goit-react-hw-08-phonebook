@@ -39,7 +39,7 @@ export const Field = styled(FormikField)`
 `;
 
 export const ErrorMessage = styled(FormikError)`
-  color: #9a0374;
+  color:#a36303;
   font-weight: 500;
   font-size: 10px;
 `;
@@ -66,6 +66,7 @@ margin: 0;
     -6px -6px 10px rgba(14, 13, 13, 0.2), 6px 6px 8px rgba(69, 68, 68, 0.075),
     6px 6px 10px rgba(5, 5, 5, 0.15);
   :hover {
+      background-color: #f8d256;
     box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.7),
       -2px -2px 4px rgba(255, 255, 255, 0.4),
       2px 2px 2px rgba(188, 186, 186, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);

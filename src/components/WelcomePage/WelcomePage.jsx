@@ -1,15 +1,17 @@
-import { WelcomeContainer, WelcomeField } from "./WelcomePage.styled";
+import {
+  WelcomeContainer,
+  WelcomeField,
+  WelcomeSubTitle,
+  WelcomeTitle,
+} from './WelcomePage.styled';
 
-export const  WelcomePage = () => {
+export const WelcomePage = () => {
   return (
-      <WelcomeContainer>
-          <WelcomeField>
-              <h1 >
-        ContactBook welcome page{' '}
-        
-      </h1>
-          </WelcomeField>
-      
+    <WelcomeContainer>
+      <WelcomeField>
+        <WelcomeTitle>PHONEBOOK</WelcomeTitle>
+        <WelcomeSubTitle>- your personal contact-manager app -</WelcomeSubTitle>
+      </WelcomeField>
     </WelcomeContainer>
   );
-}
+};

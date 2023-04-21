@@ -21,7 +21,7 @@ export const FilterContainer = styled.div`
 export const FilterField = styled.input`
   height: 30px;
   padding: 3px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   outline: none;
   border: none;
   border-radius: 5px;
