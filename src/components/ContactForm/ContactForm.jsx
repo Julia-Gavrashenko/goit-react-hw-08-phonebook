@@ -8,14 +8,9 @@ import {
   FormField,
   Field,
   ErrorMessage,
-  AddContactBtn, } from './ContactForm.styled';
-// import { addContact } from 'redux/contactsSlice/contactsSlice';
-// import { addContact } from 'redux/operations';
-// import { selectContacts } from 'redux/selectors';
-
-
-
-
+  AddContactBtn,
+} from './ContactForm.styled';
+import { toast } from 'react-hot-toast';
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -44,7 +39,14 @@ export const ContactForm = () => {
     );
 
     existedContact
-      ? alert('This contact is already in contacts.')
+      ? toast('This contact is already in contacts', {
+          style: {
+            backgroundColor: '#f8d256',
+            color: '#2f2f2f',
+            marginTop: '200px',
+            height: '40px',
+          },
+        })
       : dispatch(addContact(newContact));
   };
 
@@ -60,13 +62,13 @@ export const ContactForm = () => {
       <Form>
         <FormField>
           Name
-          <Field type="text" name="name" autoComplete="off"/>
+          <Field type="text" name="name" autoComplete="off" />
           <ErrorMessage name="name" component="p" />
         </FormField>
 
         <FormField>
           Number
-          <Field type="tel" name="number" autoComplete="off"/>
+          <Field type="tel" name="number" autoComplete="off" />
           <ErrorMessage name="number" component="p" />
         </FormField>
 

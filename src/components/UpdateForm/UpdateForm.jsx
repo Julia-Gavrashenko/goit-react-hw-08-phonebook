@@ -10,8 +10,7 @@ import {
   ErrorMessage,
   UpdateContactBtn,
 } from './UpdateForm.styled';
-
-
+import { toast } from 'react-hot-toast';
 
 const UpdateContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -34,8 +33,6 @@ export const UpdateForm = ({
   contactNumber,
   onClose,
 }) => {
-  console.log(contactId, contactName, contactNumber);
-
   const dispatch = useDispatch();
 
   return (
@@ -55,18 +52,26 @@ export const UpdateForm = ({
           })
         );
         onClose();
+        toast('Contact was successfully updated', {
+          style: {
+            backgroundColor: '#f8d256',
+            color: '#2f2f2f',
+            marginTop: '200px',
+            height: '40px',
+          },
+        });
       }}
     >
       <Form>
         <FormField>
           Name
-          <Field type="text" name="name" autoComplete="off"/>
+          <Field type="text" name="name" autoComplete="off" />
           <ErrorMessage name="name" component="p" />
         </FormField>
 
         <FormField>
           Number
-          <Field type="tel" name="number" autoComplete="off"/>
+          <Field type="tel" name="number" autoComplete="off" />
           <ErrorMessage name="number" component="p" />
         </FormField>
 

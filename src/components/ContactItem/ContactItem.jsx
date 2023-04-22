@@ -3,49 +3,64 @@ import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
-import { ListItem, Item, ItemButton, ItemSpan, BtnDiv } from './ContactItem.styled';
+import {
+  ListItem,
+  Item,
+  ItemButton,
+  ItemSpan,
+  BtnDiv,
+} from './ContactItem.styled';
 
 import UpdateModal from 'components/UpdateModal/UpdateModal';
 import { useState } from 'react';
-
-
+import { toast } from 'react-hot-toast';
 
 export const ContactItem = ({ info: { name, number, id } }) => {
-  const [open, setOpen] = useState(false)
-  
+  const [open, setOpen] = useState(false);
+
   const dispatch = useDispatch();
 
-  const handleDelete = () => dispatch(deleteContact(id));
+  const handleDelete = () => {
+    dispatch(deleteContact(id));
+    toast('Contact was successfully deleted', {
+      style: {
+        backgroundColor: '#f8d256',
+        color: '#2f2f2f',
+        marginTop: '200px',
+        height: '40px',
+      },
+    });
+  };
   const openModal = () => {
-    setOpen(true)
-    console.log('click')
-  }
-
- 
+    setOpen(true);
+  };
 
   return (
     <>
-       <Item>
-      <ListItem>
-        <ItemSpan>{name} :</ItemSpan> {number}
-      </ListItem>
+      <Item>
+        <ListItem>
+          <ItemSpan>{name} :</ItemSpan> {number}
+        </ListItem>
 
         <BtnDiv>
-         <ItemButton type="button" onClick={openModal} >
-        Update contact
-      </ItemButton>
-
-      <ItemButton type="button" onClick={handleDelete}>
-        Delete contact
+          <ItemButton type="button" onClick={openModal}>
+            Update contact
           </ItemButton>
-        </BtnDiv>   
 
-      </Item>  
-   
-      
-      <UpdateModal open={open} onClose={() => setOpen(false)} contactId={id} contactName={name} contactNumber={number } />
+          <ItemButton type="button" onClick={handleDelete}>
+            Delete contact
+          </ItemButton>
+        </BtnDiv>
+      </Item>
+
+      <UpdateModal
+        open={open}
+        onClose={() => setOpen(false)}
+        contactId={id}
+        contactName={name}
+        contactNumber={number}
+      />
     </>
-   
   );
 };
 

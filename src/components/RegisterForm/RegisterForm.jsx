@@ -12,6 +12,7 @@ import {
   LoginField,
 } from './RegisterForm.styled';
 
+
 const RegisterFormSchema = Yup.object().shape({
   name: Yup.string()
     .matches(
@@ -48,7 +49,8 @@ export const RegisterForm = () => {
               name: values.name,
               email: values.email,
               password: values.password,
-            })
+            }),
+      
           );
         }}
       >
