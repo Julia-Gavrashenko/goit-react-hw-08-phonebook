@@ -7,8 +7,6 @@ export const MenuWrapper = styled.div`
 `;
 
 export const UserName = styled.p`
-  /* display: flex;
-  align-items: center; */
   gap: 12px;
   text-decoration: none;
 
@@ -18,8 +16,6 @@ export const UserName = styled.p`
 `;
 
 export const LogoutBtn = styled.button`
-  /* display: flex;
-  align-items: center; */
   gap: 12px;
   text-decoration: none;
 

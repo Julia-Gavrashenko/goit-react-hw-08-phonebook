@@ -12,7 +12,6 @@ export const Form = styled(FormikForm)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  /* padding-left: 30px; */
 `;
 
 export const FormField = styled.label`

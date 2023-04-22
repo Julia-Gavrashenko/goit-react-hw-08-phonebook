@@ -44,22 +44,26 @@ export const UpdateForm = ({
       }}
       validationSchema={UpdateContactSchema}
       onSubmit={(values, id) => {
-        dispatch(
-          updateContact({
-            id: contactId,
-            name: values.name,
-            number: values.number,
-          })
-        );
-        onClose();
-        toast('Contact was successfully updated', {
-          style: {
-            backgroundColor: '#f8d256',
-            color: '#2f2f2f',
-            marginTop: '200px',
-            height: '40px',
-          },
-        });
+        if (values.name !== contactName || values.number !== contactNumber) {
+          dispatch(
+            updateContact({
+              id: contactId,
+              name: values.name,
+              number: values.number,
+            })
+          );
+          onClose();
+          toast('Contact was successfully updated', {
+            style: {
+              backgroundColor: '#f8d256',
+              color: '#2f2f2f',
+              marginTop: '200px',
+              height: '40px',
+            },
+          });
+
+          return;
+        }
       }}
     >
       <Form>
